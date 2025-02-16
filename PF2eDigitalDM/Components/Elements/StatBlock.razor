@@ -1,0 +1,86 @@
+﻿<div id="content" style="font-size: 14px; line-height: 1.2;">
+    <h5 style="margin: 0;">
+        <b>@character.Name</b>
+        <span style="float:right; font-size: 12px;">@character.ClassLevel</span>
+    </h5>
+
+    <div style="margin-top: 5px;">
+        <b>Perception</b> +@character.Perception; @character.Vision
+    </div>
+    <div><b>Languages</b> @string.Join(", ", character.Languages)</div>
+    <div><b>Skills</b> @string.Join(", ", character.Skills.Select(s => $"{s.Key} +{s.Value}"))</div>
+    <div><b>Attributes</b> @string.Join(", ", character.Attributes.Select(a => $"{a.Key} +{a.Value}"))</div>
+
+    <div>
+        <b>AC</b> @character.AC;
+        <b>Fort</b> +@character.Saves["Fort"],
+        <b>Ref</b> +@character.Saves["Ref"],
+        <b>Will</b> +@character.Saves["Will"]
+        <b>HP</b> @character.HP
+        <b>Speed</b> @character.Speed feet
+    </div>
+</div>
+
+
+<style>
+    #content {
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 400px;
+    }
+
+    hr {
+        border: 1.5px solid black;
+        padding: 0px;
+        margin: 3px 0px 3px 0px;
+    }
+
+    h3 {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    a {
+        color: black;
+        font-style: italic;
+    }
+
+    .trait {
+        background-color: #500000;
+        padding: 2px 5px 2px 5px;
+        margin: 2px;
+        font-size: 0.9em;
+        color: white;
+        display: inline-block;
+    }
+
+    .trait-alignment {
+        background-color: #4287f5;
+    }
+
+    .trait-rare {
+        background-color: #0c1466;
+    }
+
+    .trait-uncommon {
+        background-color: #c45500;
+    }
+
+    .trait-unique {
+        background-color: #800080;
+    }
+
+    .trait-size {
+        background-color: #478c42;
+    }
+
+    .action-icon {
+        display: inline;
+        margin-right: 0.3em;
+        padding-bottom: 0.1em;
+        vertical-align: middle;
+    }
+
+</style>

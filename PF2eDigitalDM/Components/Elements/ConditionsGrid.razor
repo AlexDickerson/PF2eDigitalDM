@@ -1,0 +1,32 @@
+﻿<div class="grid-display">
+    @foreach (var condition in Conditions)
+    {
+        <img src="Images/@(condition.Name.ToLower().Replace("-", "_")).webp" width="50" height="50" />
+        <div class="condition-hover">
+            <h3>@condition.Name</h3>
+            @((MarkupString)condition.Description)
+        </div>
+    }
+</div>
+
+<style>
+    .grid-display {
+        display: grid;
+        position: relative;
+        grid-template-columns: repeat(4, 50px);
+    }
+
+    .condition-hover {
+        display: none;
+        position: absolute;
+        left: 200px;
+        background-color: white;
+        border: 1px solid black;
+        width: 800px;
+        height: 400px;
+    }
+
+    .grid-display img:hover + .condition-hover {
+        display: block;
+    }
+</style>

@@ -1,0 +1,287 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
+        <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+        <!-- <TargetFrameworks>$(TargetFrameworks);net9.0-tizen</TargetFrameworks> -->
+
+        <!-- Note for MacCatalyst:
+            The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+            When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+            The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+            either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+        <!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+        <OutputType>Exe</OutputType>
+        <RootNamespace>PF2eDigitalDM</RootNamespace>
+        <UseMaui>true</UseMaui>
+        <SingleProject>true</SingleProject>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <EnableDefaultCssItems>false</EnableDefaultCssItems>
+        <Nullable>enable</Nullable>
+
+        <!-- Display name -->
+        <ApplicationTitle>PF2eDigitalDM</ApplicationTitle>
+
+        <!-- App Identifier -->
+        <ApplicationId>com.companyname.pf2edigitaldm</ApplicationId>
+
+        <!-- Versions -->
+        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <ApplicationVersion>1</ApplicationVersion>
+
+        <!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
+        <WindowsPackageType>None</WindowsPackageType>
+
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">24.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+        <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+    </PropertyGroup>
+
+  <ItemGroup>
+    <!-- App Icon -->
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+    <!-- Splash Screen -->
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+    <!-- Images -->
+    <MauiImage Include="Resources\Images\*" />
+    <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+
+    <!-- Custom Fonts -->
+    <MauiFont Include="Resources\Fonts\*" />
+
+    <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiImage Include="wwwroot\Images\blinded.webp" />
+    <MauiImage Include="wwwroot\Images\broken.webp" />
+    <MauiImage Include="wwwroot\Images\clumsy.webp" />
+    <MauiImage Include="wwwroot\Images\concealed.webp" />
+    <MauiImage Include="wwwroot\Images\confused.webp" />
+    <MauiImage Include="wwwroot\Images\controlled.webp" />
+    <MauiImage Include="wwwroot\Images\cursebound.webp" />
+    <MauiImage Include="wwwroot\Images\dazzled.webp" />
+    <MauiImage Include="wwwroot\Images\deafened.webp" />
+    <MauiImage Include="wwwroot\Images\doomed.webp" />
+    <MauiImage Include="wwwroot\Images\drained.webp" />
+    <MauiImage Include="wwwroot\Images\dying.webp" />
+    <MauiImage Include="wwwroot\Images\encumbered.webp" />
+    <MauiImage Include="wwwroot\Images\enfeebled.webp" />
+    <MauiImage Include="wwwroot\Images\fascinated.webp" />
+    <MauiImage Include="wwwroot\Images\fatigued.webp" />
+    <MauiImage Include="wwwroot\Images\fleeing.webp" />
+    <MauiImage Include="wwwroot\Images\frightened.webp" />
+    <MauiImage Include="wwwroot\Images\grabbed.webp" />
+    <MauiImage Include="wwwroot\Images\hidden.webp" />
+    <MauiImage Include="wwwroot\Images\immobilized.webp" />
+    <MauiImage Include="wwwroot\Images\invisible.webp" />
+    <MauiImage Include="wwwroot\Images\malevolence.webp" />
+    <MauiImage Include="wwwroot\Images\observed.webp" />
+    <MauiImage Include="wwwroot\Images\off_guard.webp" />
+    <MauiImage Include="wwwroot\Images\paralyzed.webp" />
+    <MauiImage Include="wwwroot\Images\persistent_damage.webp" />
+    <MauiImage Include="wwwroot\Images\petrified.webp" />
+    <MauiImage Include="wwwroot\Images\prone.webp" />
+    <MauiImage Include="wwwroot\Images\quickened.webp" />
+    <MauiImage Include="wwwroot\Images\restrained.webp" />
+    <MauiImage Include="wwwroot\Images\sickened.webp" />
+    <MauiImage Include="wwwroot\Images\slowed.webp" />
+    <MauiImage Include="wwwroot\Images\stunned.webp" />
+    <MauiImage Include="wwwroot\Images\stupefied.webp" />
+    <MauiImage Include="wwwroot\Images\unconscious.webp" />
+    <MauiImage Include="wwwroot\Images\undetected.webp" />
+    <MauiImage Include="wwwroot\Images\unfriendly.webp" />
+    <MauiImage Include="wwwroot\Images\unnoticed.webp" />
+    <MauiImage Include="wwwroot\Images\wounded.webp" />
+  </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Library\Library.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="wwwroot\static\conditions\*">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="wwwroot\Images\blinded.webp" />
+      <None Include="wwwroot\Images\broken.webp" />
+      <None Include="wwwroot\Images\clumsy.webp" />
+      <None Include="wwwroot\Images\concealed.webp" />
+      <None Include="wwwroot\Images\confused.webp" />
+      <None Include="wwwroot\Images\controlled.webp" />
+      <None Include="wwwroot\Images\cursebound.webp" />
+      <None Include="wwwroot\Images\dazzled.webp" />
+      <None Include="wwwroot\Images\deafened.webp" />
+      <None Include="wwwroot\Images\doomed.webp" />
+      <None Include="wwwroot\Images\drained.webp" />
+      <None Include="wwwroot\Images\dying.webp" />
+      <None Include="wwwroot\Images\encumbered.webp" />
+      <None Include="wwwroot\Images\enfeebled.webp" />
+      <None Include="wwwroot\Images\fascinated.webp" />
+      <None Include="wwwroot\Images\fatigued.webp" />
+      <None Include="wwwroot\Images\fleeing.webp" />
+      <None Include="wwwroot\Images\frightened.webp" />
+      <None Include="wwwroot\Images\grabbed.webp" />
+      <None Include="wwwroot\Images\hidden.webp" />
+      <None Include="wwwroot\Images\immobilized.webp" />
+      <None Include="wwwroot\Images\invisible.webp" />
+      <None Include="wwwroot\Images\malevolence.webp" />
+      <None Include="wwwroot\Images\observed.webp" />
+      <None Include="wwwroot\Images\off_guard.webp" />
+      <None Include="wwwroot\Images\paralyzed.webp" />
+      <None Include="wwwroot\Images\persistent_damage.webp" />
+      <None Include="wwwroot\Images\petrified.webp" />
+      <None Include="wwwroot\Images\prone.webp" />
+      <None Include="wwwroot\Images\quickened.webp" />
+      <None Include="wwwroot\Images\restrained.webp" />
+      <None Include="wwwroot\Images\sickened.webp" />
+      <None Include="wwwroot\Images\slowed.webp" />
+      <None Include="wwwroot\Images\stunned.webp" />
+      <None Include="wwwroot\Images\stupefied.webp" />
+      <None Include="wwwroot\Images\unconscious.webp" />
+      <None Include="wwwroot\Images\undetected.webp" />
+      <None Include="wwwroot\Images\unfriendly.webp" />
+      <None Include="wwwroot\Images\unnoticed.webp" />
+      <None Include="wwwroot\Images\wounded.webp" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="wwwroot\Images\blinded.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\broken.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\clumsy.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\concealed.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\confused.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\controlled.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\cursebound.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\dazzled.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\deafened.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\doomed.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\drained.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\dying.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\encumbered.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\enfeebled.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\fascinated.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\fatigued.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\fleeing.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\frightened.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\grabbed.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\hidden.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\immobilized.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\invisible.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\malevolence.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\observed.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\off_guard.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\paralyzed.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\persistent_damage.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\petrified.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\prone.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\quickened.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\restrained.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\sickened.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\slowed.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\stunned.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\stupefied.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\unconscious.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\undetected.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\unfriendly.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\unnoticed.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Images\wounded.webp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+</Project>

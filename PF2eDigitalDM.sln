@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35728.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PF2eDigitalDM", "PF2eDigitalDM\PF2eDigitalDM.csproj", "{3AC2EFF7-CCC4-4C63-A1F5-1720A8D97034}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{992F8DE6-981D-4E8B-A5BF-A189798FA9E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AC2EFF7-CCC4-4C63-A1F5-1720A8D97034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AC2EFF7-CCC4-4C63-A1F5-1720A8D97034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AC2EFF7-CCC4-4C63-A1F5-1720A8D97034}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3AC2EFF7-CCC4-4C63-A1F5-1720A8D97034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AC2EFF7-CCC4-4C63-A1F5-1720A8D97034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{992F8DE6-981D-4E8B-A5BF-A189798FA9E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{992F8DE6-981D-4E8B-A5BF-A189798FA9E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{992F8DE6-981D-4E8B-A5BF-A189798FA9E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{992F8DE6-981D-4E8B-A5BF-A189798FA9E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
